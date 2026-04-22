@@ -5,6 +5,7 @@ import { AppProvider } from "@/contexts/AppContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -87,6 +88,7 @@ function RootComponent() {
         </main>
         <Footer />
         <WhatsAppButton />
+        <Toaster position="top-center" richColors closeButton />
       </div>
     </AppProvider>
   );
