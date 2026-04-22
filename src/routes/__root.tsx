@@ -88,6 +88,7 @@ function RootComponent() {
         </main>
         <Footer />
         <WhatsAppButton />
+        <Toaster position="top-center" richColors closeButton />
       </div>
     </AppProvider>
   );
