@@ -1,26 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/Hero";
+import { ClientsSlider } from "@/components/ClientsSlider";
+import { ServicesGrid } from "@/components/ServicesGrid";
+import { WhyUs } from "@/components/WhyUs";
+import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "X Tech Agency — We Build Brands. We Scale Businesses." },
+      {
+        name: "description",
+        content:
+          "Premium marketing, web & app development, design, and AI automation under one roof. Start your project with X Tech Agency.",
+      },
+      { property: "og:title", content: "X Tech Agency — We Build Brands. We Scale Businesses." },
+      {
+        property: "og:description",
+        content: "Marketing · Technology · Automation · Growth.",
+      },
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <ClientsSlider />
+      <ServicesGrid />
+      <WhyUs />
+      <CTASection />
+    </>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
