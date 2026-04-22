@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { useApp } from "@/contexts/AppContext";
-import { CONTACT_EMAIL, SOCIAL_LINKS, WHATSAPP_LINK } from "@/lib/constants";
-import { Facebook, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { CONTACT_EMAIL, LOCATION, PHONE_LINK, PHONE_NUMBER, SOCIAL_LINKS, WHATSAPP_LINK } from "@/lib/constants";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 export function Footer() {
   const { t } = useApp();
@@ -70,6 +70,12 @@ export function Footer() {
                 <Mail className="h-4 w-4" /> {CONTACT_EMAIL}
               </a>
               <a
+                href={PHONE_LINK}
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
+              >
+                <Phone className="h-4 w-4" /> {PHONE_NUMBER}
+              </a>
+              <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -77,6 +83,9 @@ export function Footer() {
               >
                 <MessageCircle className="h-4 w-4" /> +20 114 522 2991
               </a>
+              <p className="inline-flex items-start gap-2 text-muted-foreground">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" /> {LOCATION}
+              </p>
             </div>
           </div>
         </div>

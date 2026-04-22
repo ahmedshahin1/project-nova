@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import { Mail, MessageCircle, Phone, Send, User } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, Send, User } from "lucide-react";
 import { useApp } from "@/contexts/AppContext";
-import { CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/constants";
+import { CONTACT_EMAIL, LOCATION, PHONE_LINK, PHONE_NUMBER, WHATSAPP_NUMBER } from "@/lib/constants";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -128,6 +128,15 @@ function ContactPage() {
                   {CONTACT_EMAIL}
                 </a>
                 <a
+                  href={PHONE_LINK}
+                  className="flex items-center gap-3 text-foreground/90 hover:text-primary"
+                >
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-brand text-white">
+                    <Phone className="h-4 w-4" />
+                  </span>
+                  {PHONE_NUMBER}
+                </a>
+                <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -138,6 +147,12 @@ function ContactPage() {
                   </span>
                   +20 114 522 2991
                 </a>
+                <div className="flex items-start gap-3 text-foreground/90">
+                  <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-brand text-white">
+                    <MapPin className="h-4 w-4" />
+                  </span>
+                  <span className="pt-2">{LOCATION}</span>
+                </div>
               </div>
             </div>
           </div>
