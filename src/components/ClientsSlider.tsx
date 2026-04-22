@@ -2,14 +2,20 @@ import { useApp } from "@/contexts/AppContext";
 
 export function ClientsSlider() {
   const { t } = useApp();
-  const items = [...t.clients.items, ...t.clients.items];
+
+  const clientItems = Array.isArray(t?.clients?.items)
+    ? t.clients.items
+    : [];
+
+  const items = clientItems.concat(clientItems);
 
   return (
     <section className="border-y border-border bg-secondary/30 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-          {t.clients.title}
+          {t?.clients?.title ?? "Clients"}
         </p>
+
         <div className="mask-fade-edges overflow-hidden">
           <div className="flex w-max animate-slide-x gap-4">
             {items.map((label, i) => (
