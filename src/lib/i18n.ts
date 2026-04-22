@@ -265,4 +265,7 @@ export const translations = {
   },
 } as const;
 
-export type Translations = typeof translations.en;
+type DeepWritable<T> = T extends object
+  ? { -readonly [K in keyof T]: DeepWritable<T[K]> }
+  : T;
+export type Translations = DeepWritable<typeof translations.en>;
